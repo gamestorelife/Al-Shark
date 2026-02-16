@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ألفيكسو | منصة التداول الأكثر ربحية</title>
+    <!-- Bootstrap 5 RTL (official) + custom fonts & icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css"
+      integrity="sha384-nU14brUcp6StFntEOOEBvcJm4huWjB0OcIeQ3fltAfSmuZFrkAif0T+UtNGlKKQv"
+      crossorigin="anonymous"
+    />
+    <!-- Fonts: Cairo (primary) & Alexandria (secondary) -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&family=Alexandria:wght@400;700&display=swap"
+    />
+    <!-- Font Awesome 6 (free) for crisp icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* ----- custom overrides & premium high-ticket look ----- */
+      html,
+      body {
+        overflow-x: hidden !important;
+        width: 100%;
+        max-width: 100%;
+      }
+      body {
+        font-family: "Cairo", sans-serif;
+        background-color: #fafcff;
+        color: #0f1a2a;
+        overflow-x: hidden;
+        margin: 0;
+      }
+      h1,
+      h2,
+      h3,
+      .h1,
+      .h2,
+      .h3,
+      .display-5,
+      .display-6 {
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .navbar {
+        z-index: 9999;
+      }
+      .bg-premium-dark {
+        background: #0b1a2f; /* deep navy – high-ticket feel */
+      }
+      /* hero video wrapper */
+      .hero-video-wrapper {
+        position: relative;
+        border-radius: 28px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+        border: 1px solid rgba(255, 215, 0, 0.5);
+      }
+      .hero-video {
+        width: 100%;
+        height: auto;
+        display: block;
+        background: #000;
+        aspect-ratio: 22/15;
+      }
+      .bg-maroon-premium {
+        background: #810406; /* original maroon but refined */
+      }
+      .text-maroon {
+        color: #810406;
+      }
+      .btn-gold {
+        background: linear-gradient(145deg, #c9a03d, #a47c2b);
+        border: none;
+        color: #0b1a2f;
+        font-weight: 800;
+        padding: 0.75rem 2rem;
+        border-radius: 50px;
+        box-shadow: 0 10px 18px -8px rgba(0, 0, 0, 0.3);
+        transition: all 0.2s;
+      }
+      .btn-gold:hover {
+        background: linear-gradient(145deg, #dbb55c, #b89238);
+        color: #000;
+        transform: translateY(-2px);
+        box-shadow: 0 20px 25px -10px rgba(0, 0, 0, 0.4);
+      }
+      .btn-outline-premium {
+        border: 2px solid #c9a03d;
+        color: #c9a03d;
+        font-weight: 700;
+        border-radius: 50px;
+        padding: 0.5rem 1.8rem;
+      }
+      .btn-outline-premium:hover {
+        background: #c9a03d;
+        color: #0b1a2f;
+      }
+      .card-premium {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(2px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 24px;
+        box-shadow: 0 25px 40px -15px rgba(0, 20, 30, 0.2);
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 215, 120, 0.3);
+        border-radius: 28px;
+      }
+      .badge-premium {
+        background: #810406;
+        color: #f5e9d8;
+        font-weight: 700;
+        padding: 0.4rem 1.2rem;
+        border-radius: 40px;
+        letter-spacing: 0.5px;
+      }
+      /* rtl spacing fix */
+      .navbar-nav .nav-link {
+        font-weight: 600;
+        color: #e9edf2 !important;
+        margin: 0 0.2rem;
+      }
+      .navbar-nav .nav-link:hover {
+        color: #f5c84e !important;
+      }
+      .icon-circle {
+        width: 48px;
+        height: 48px;
+        background: rgba(201, 160, 61, 0.12);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 60px;
+        color: #a47c2b;
+        font-size: 1.5rem;
+      }
+      .lead-form-input {
+        background: white;
+        border: 1.5px solid #e9ecf2;
+        border-radius: 60px !important;
+        padding: 0.9rem 1.8rem !important;
+        font-size: 1.1rem;
+        font-weight: 500;
+        transition: 0.2s;
+      }
+      .lead-form-input:focus {
+        border-color: #c9a03d;
+        box-shadow: 0 0 0 4px rgba(201, 160, 61, 0.25);
+      }
+      .stats-number {
+        font-size: 2.4rem;
+        font-weight: 900;
+        color: #0b1a2f;
+        line-height: 1;
+      }
+      .section-padding {
+        padding: 5rem 0;
+      }
+      .bg-soft-gold {
+        background: #fefbf5;
+      }
+      .article-card {
+        border-radius: 24px;
+        overflow: hidden;
+        border: none;
+        box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.1);
+        transition: 0.2s;
+      }
+      .article-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 25px 35px -10px rgba(0, 0, 0, 0.15);
+      }
+      .footer-logo {
+        filter: brightness(0) invert(1);
+        opacity: 0.9;
+      }
+      .rtl-side {
+        text-align: right;
+      }
+      /* moving ticker style */
+      .ticker-wrap {
+        background: #810406;
+        color: white;
+        padding: 0.8rem 0;
+        font-size: 1.3rem;
+        font-weight: 600;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .ticker-move {
+        display: inline-block;
+        animation: ticker 35s linear infinite;
+      }
+      @keyframes ticker {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .social-icon-btn:hover {
+        transform: translateY(-5px);
+        background-color: #c9a03d; /* Premium gold hover */
+        color: white;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Optional: Individual brand colors on hover */
+      .social-icon-btn.vimeo:hover {
+        background-color: #1ab7ea;
+      }
+      .social-icon-btn.linkedin:hover {
+        background-color: #0077b5;
+      }
+      .social-icon-btn.youtube:hover {
+        background-color: #ff0000;
+      }
+      .social-icon-btn.instagram:hover {
+        background: radial-gradient(
+          circle at 30% 107%,
+          #fdf497 0%,
+          #fdf497 5%,
+          #fd5949 45%,
+          #d6249f 60%,
+          #285aeb 90%
+        );
+      }
+      /* aggressive CPA elements */
+      .cpa-urgency {
+        background: #fff7e6;
+        border-right: 6px solid #c9a03d;
+        padding: 1.2rem 1.5rem;
+        border-radius: 20px;
+      }
+
+      .soIcon {
+        color: rgb(216 232 255);
+        text-decoration: underline;
+        background: #302b2b;
+        border-radius: 50px;
+        padding: 10px;
+        font-size: 23px;
+      }
+      .miniIcon {
+        padding: 10px;
+      }
+
+      .btn-glass-sm {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        border-radius: 50px;
+        padding: 5px 15px;
+        font-size: 0.8rem;
+        z-index: 10;
+      }
+      /* responsive fine-tune */
+      @media (max-width: 768px) {
+        .display-5 {
+          font-size: 2.2rem;
+        }
+        .section-padding {
+          padding: 3rem 0;
+        }
+        .stats-number {
+          font-size: 2rem;
+        }
+        .btn-glass-sm {
+          background: rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          color: white;
+          border-radius: 50px;
+          padding: 5px 15px;
+          font-size: 0.8rem;
+          z-index: 10;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR: weather / date / aggressive ticker -->
+    <div class="bg-premium-dark py-2 text-white small">
+      <div class="container d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-3">
+          <span class="temperature"> 21°C</span>
+          <span id="live-date-time" class="border-start border-secondary ps-3"
+            ><i class="far fa-calendar-alt ms-1"></i> 5 نوفمبر, 2025</span
+          >
+        </div>
+        <div class="d-none d-md-block">
+          <span class="badge bg-light text-dark rounded-pill px-3 py-2"
+            ><i class="fas fa-chart-line text-success me-1"></i> مؤشرات حية:
+            الذهب +1.2% | btc +3.4%</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR (premium, semi-transparent) -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-premium-dark sticky-top py-3"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/cyus908Gjc.png"
+            alt="Alvexo"
+            height="42"
+            style="filter: brightness(0) invert(1)"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarMain"
+          aria-controls="navbarMain"
+          aria-expanded="false"
+          aria-label="تبديل القائمة"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="#">الرئيسية</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">تداول</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">الأسواق</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">تحليلات</a></li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">المقالات</a>
+            </li>
+          </ul>
+          <div class="d-flex gap-2">
+            <a href="#bform" class="btn btn-outline-premium px-4">تسجيل دخول</a>
+            <a href="#bform" class="btn btn-gold">فتح حساب</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ANNOUNCEMENT TICKER (ultra-aggressive) -->
+    <div class="ticker-wrap">
+      <div class="ticker-move">
+        <span class="mx-4"
+          ><i class="fas fa-bolt text-warning"></i> 83% من المتداولين حققوا
+          أرباحاً هذا الأسبوع
+        </span>
+        <span class="mx-4">🔥 بونص 100% عند الإيداع الأول – لفترة محدودة </span>
+        <span class="mx-4">🏆 منصة العام 2026 – حائزة على جائزة الابتكار </span>
+        <span class="mx-4"
+          ><i class="fas fa-bolt text-warning"></i> 83% من المتداولين حققوا
+          أرباحاً هذا الأسبوع
+        </span>
+        <span class="mx-4">🔥 بونص 100% عند الإيداع الأول – لفترة محدودة </span>
+        <span class="mx-4">🏆 منصة العام 2026 – حائزة على جائزة الابتكار </span>
+      </div>
+    </div>
+
+    <!-- MAIN LAYOUT: two columns (right: articles, left: main content) -->
+    <div class="container position-relative mt-4">
+      <div class="row g-5">
+        <!-- Right sidebar: "اقرأ المزيد من المقالات" + three article cards (Bootstrap style) -->
+        <div class="col-lg-4 order-lg-1">
+          <div class="sticky-top" style="top: 100px">
+            <h3 class="border-bottom pb-2 mb-4 d-flex align-items-center">
+              <span
+                class="bg-maroon-premium text-white px-3 py-1 rounded-3 ms-2"
+                style="font-size: 1.1rem"
+                >جديد</span
+              >
+              اقرأ المزيد من المقالات
+            </h3>
+
+            <!-- article card 1 -->
+            <div class="card article-card mb-4">
+              <img
+                src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/tpcVnZEXWm.png"
+                class="card-img-top"
+                alt="منصة الفكسو"
+              />
+              <div class="card-body">
+                <h5 class="card-title fw-bold">
+                  الفكسو هي منصتي الاستثمارية الجديدة
+                </h5>
+                <p class="text-muted small">
+                  <i class="far fa-clock ms-1"></i> نشر في 25 اكتوبر , 2025
+                </p>
+                <p class="card-text">
+                  وُلد الشقيري في جدة، وتخرّج من مدرسة منارات قبل أن ينتقل
+                  لأمريكا...
+                </p>
+                <a href="#" class="btn btn-link text-maroon p-0 fw-bold"
+                  >اقرأ المزيد <i class="fas fa-arrow-left me-1"></i
+                ></a>
+              </div>
+            </div>
+            <!-- article card 2 -->
+            <div class="card article-card mb-4">
+              <img
+                src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/VqdwAWnpaM.png"
+                class="card-img-top"
+                alt="الأسواق"
+              />
+              <div class="card-body">
+                <h5 class="card-title fw-bold">
+                  كيف تحوّل 500$ إلى 5000$ في شهر؟
+                </h5>
+                <p class="text-muted small">
+                  <i class="far fa-clock ms-1"></i> نشر في 1 نوفمبر , 2025
+                </p>
+                <p class="card-text">
+                  استراتيجيات الخبراء لتنمية رأس المال في الأسواق الهابطة...
+                </p>
+                <a href="#" class="btn btn-link text-maroon p-0 fw-bold"
+                  >اقرأ المزيد <i class="fas fa-arrow-left me-1"></i
+                ></a>
+              </div>
+            </div>
+            <!-- article card 3 -->
+            <div class="card article-card mb-4">
+              <img
+                src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/3mXhYQeg0Q.png"
+                class="card-img-top"
+                alt="تداول"
+              />
+              <div class="card-body">
+                <h5 class="card-title fw-bold">
+                  أحمد الشقيري: "ربحت 10,000$ في 30 يوم"
+                </h5>
+                <p class="text-muted small">
+                  <i class="far fa-clock ms-1"></i> نشر في 5 نوفمبر , 2025
+                </p>
+                <p class="card-text">
+                  قصة نجاح ملهمة مع منصة Alvexo، وكيف غيرت حياته المالية...
+                </p>
+                <a href="#" class="btn btn-link text-maroon p-0 fw-bold"
+                  >اقرأ المزيد <i class="fas fa-arrow-left me-1"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Left main content (premium story & forms) -->
+        <div class="col-lg-8">
+          <!-- Main hero article -->
+          <div class="glass-card p-4 p-xl-5 mb-5">
+            <span class="badge-premium mb-3 d-inline-block"
+              >#1 منصة تداول 2025</span
+            >
+            <h1 class="display-5 fw-black mb-3">
+              خلال شهر ربحت أكثر من 10,000 دولار!
+            </h1>
+            <div class="col-lg-12">
+              <div class="hero-video-wrapper">
+                <!-- Autoplay muted loop playsinline - mobile optimized -->
+                <div class="video-container position-relative">
+                  <video
+                    id="brokerVideo"
+                    class="hero-video w-100 rounded-4 shadow"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                  >
+                    <source src="mbmb1.mp4" type="video/mp4" />
+                    <img
+                      src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/h7A4g5twNi.png"
+                      alt="فيديو تداول"
+                      class="img-fluid"
+                    />
+                  </video>
+
+                  <button
+                    id="unmuteBtn"
+                    class="btn btn-glass-sm position-absolute bottom-0 start-0 m-3"
+                  >
+                    <i class="fas fa-volume-mute" id="muteIcon"></i>
+                    <span id="muteText">تشغيل الصوت</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-10">
+                <p class="lead fs-5">
+                  وُلد الشقيري في جدة، وتخرّج من مدرسة منارات قبل أن ينتقل
+                  لأمريكا ويحصل على بكالوريوس نظم الإدارة وماجستير إدارة الأعمال
+                  من جامعة ولاية كاليفورنيا. بعد عودته عام 1996، قدّم برامج
+                  ملهمة مثل خواطر، غيّرت فكر ملايين العرب نحو التطور. لكن رغم
+                  النجاح الإعلامي، كان دائم البحث عن فرص استثمارية حقيقية تحقق
+                  الحرية المالية. يقول الشقيري: “كنت ابحث عن طرق الاستثمار
+                  الناجح حتى عرّفني صديقي على استراتيجيته في التداول مع Olymp
+                  trade، قررت ابدأ وكان معي دعم احترافي في كل خطوة… وخلال شهر
+                  ربحت أكثر من 10,000 دولار.”
+                </p>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-4 mt-3">
+              <div class="d-flex gap-2">
+                <span class="icon-circle"><i class="fab fa-whatsapp"></i></span>
+                <span class="icon-circle"><i class="fab fa-twitter"></i></span>
+                <span class="icon-circle"
+                  ><i class="fab fa-linkedin-in"></i
+                ></span>
+                <span class="icon-circle"
+                  ><i class="fab fa-facebook-f"></i
+                ></span>
+              </div>
+              <span class="text-secondary"
+                ><i class="far fa-clock ms-1"></i> تم النشر منذ ساعتين</span
+              >
+            </div>
+          </div>
+
+          <!-- aggressive CPA section: four offers grid (مواليد قبل 1950 etc) -->
+          <div class="row g-3 mb-5">
+            <div class="col-md-3 col-6">
+              <div
+                class="border bg-white p-3 rounded-4 text-center h-100 shadow-sm"
+              >
+                <span class="stats-number">82%</span>
+                <p class="fw-bold mb-0">مواليد قبل 1950</p>
+                <small class="text-muted">حقائق مذهلة</small>
+                <a href="#" class="d-block mt-2 text-maroon fw-bold"
+                  >اضغط هنا <i class="fas fa-arrow-left small"></i
+                ></a>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div
+                class="border bg-white p-3 rounded-4 text-center h-100 shadow-sm"
+              >
+                <span class="stats-number">+2,500</span>
+                <p class="fw-bold mb-0">صفقة رابحة</p>
+                <small class="text-muted">يومياً</small>
+                <a href="#" class="d-block mt-2 text-maroon fw-bold"
+                  >استراتيجيتك <i class="fas fa-arrow-left small"></i
+                ></a>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div
+                class="border bg-white p-3 rounded-4 text-center h-100 shadow-sm"
+              >
+                <span class="stats-number">100%</span>
+                <p class="fw-bold mb-0">بونص ترحيبي</p>
+                <small class="text-muted">للإيداع الأول</small>
+                <a href="#" class="d-block mt-2 text-maroon fw-bold"
+                  >احصل عليه <i class="fas fa-arrow-left small"></i
+                ></a>
+              </div>
+            </div>
+            <div class="col-md-3 col-6">
+              <div
+                class="border bg-white p-3 rounded-4 text-center h-100 shadow-sm"
+              >
+                <span class="stats-number">0.0</span>
+                <p class="fw-bold mb-0">عمولات</p>
+                <small class="text-muted">على الحساب الذهبي</small>
+                <a href="#" class="d-block mt-2 text-maroon fw-bold"
+                  >افتح حساب <i class="fas fa-arrow-left small"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- second story block (Ahmed Alshuqairy) -->
+          <div
+            class="row align-items-center g-4 mt-2 bg-soft-gold p-4 rounded-5"
+          >
+            <div class="col-md-5">
+              <img
+                src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/kWqdQHQ5gc.png"
+                class="img-fluid rounded-4 shadow"
+                alt="احمد الشقيري"
+              />
+            </div>
+            <div class="col-md-7">
+              <h2 class="fw-black">احمد الشقيري</h2>
+              <p class="text-muted">
+                <i class="far fa-calendar-alt ms-1"></i> نشر في 5 نوفمبر , 2025
+              </p>
+              <p class="fw-medium">
+                وُلد الشقيري في جدة، وتخرّج من مدرسة منارات قبل أن ينتقل لأمريكا
+                ويحصل على بكالوريوس نظم الإدارة وماجستير إدارة الأعمال من جامعة
+                ولاية كاليفورنيا. بعد عودته قدّم خواطر وغيرها.
+              </p>
+              <a href="#" class="btn btn-gold px-5 py-2">تابع القصة الكاملة</a>
+            </div>
+          </div>
+
+          <!-- LEAD CAPTURE FORM - high ticket design (CPA aggressive) -->
+          <div class="card-premium p-4 p-xl-5 mt-5" style="background: #ffffff">
+            <div class="cpa-urgency mb-4">
+              <i class="fas fa-fire fa-2x text-maroon float-start ms-3"></i>
+              <h3 class="fw-black mb-1">
+                ⚠️ 43 متداولاً يشاهدون هذه الصفحة الآن
+              </h3>
+              <p class="mb-0">باقي 6 اشتراكات فقط للحصول على البونص 100%</p>
+            </div>
+            <h2 class="display-6 fw-black mb-3">
+              ابدأ الآن حلم التداول <br />
+              مع اكبر منصة في الشرق الاوسط
+            </h2>
+            <div class="row" id="bform">
+              <div class="row">
+                <form class="row g-4" style="padding-left: 0%">
+                  <div class="col-12">
+                    <input
+                      type="text"
+                      class="form-control lead-form-input"
+                      placeholder="الاسم بالكامل"
+                    />
+                  </div>
+                  <div class="col-12">
+                    <input
+                      type="email"
+                      class="form-control lead-form-input"
+                      placeholder="البريد الإلكتروني"
+                    />
+                  </div>
+                  <div class="col-8">
+                    <input
+                      type="tel"
+                      class="form-control lead-form-input"
+                      placeholder="رقم الموبايل"
+                    />
+                  </div>
+                  <div class="col-4">
+                    <select class="form-select lead-form-input">
+                      <option>+20</option>
+                      <option>+966</option>
+                      <option>+971</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-gold w-100 py-3 fs-4">
+                      سجل الآن واحصل على 100% بونص
+                    </button>
+                  </div>
+                </form>
+                <div class="d-flex justify-content-center gap-5 mt-4 flex-wrap">
+                  <img
+                    src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/TwJOs694fm.png"
+                    height="45"
+                    alt="finacom"
+                  />
+                  <img
+                    src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/SVJHHkmvXd.png"
+                    height="45"
+                    alt="europebank"
+                  />
+                  <img
+                    src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/KCbaNyGHcT.png"
+                    height="45"
+                    alt="ssl"
+                  />
+                </div>
+                <p class="text-center text-maroon fw-bold mt-3">
+                  <i class="fas fa-lock"></i> منصة موثقة قانونياً وآمنة
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER (dark maroon with social) -->
+    <footer class="bg-maroon-premium mt-5 py-5 text-white">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <img
+              src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/cyus908Gjc.png"
+              alt="الشرق الاوسط"
+              height="60"
+              class="footer-logo mb-3"
+            />
+            <p class="small opacity-75">
+              انضم إلى ملايين المتداولين حول العالم. ابدأ رحلتك نحو النجاح
+              المالي مع منصة تداول سهلة وموثوقة.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <div
+              class="d-flex justify-content-center justify-content-md-end gap-3"
+            >
+              <a href="#" class="soIcon social-icon-btn vimeo">
+                <i class="miniIcon fab fa-vimeo-v"></i>
+              </a>
+              <a href="#" class="soIcon social-icon-btn linkedin">
+                <i class="miniIcon fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="soIcon social-icon-btn youtube">
+                <i class="miniIcon fab fa-youtube"></i>
+              </a>
+              <a href="#" class="soIcon social-icon-btn instagram">
+                <i class="miniIcon fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-4 small opacity-50">
+          <span>آخر تحديث منذ 12 دقيقة • جميع الحقوق محفوظة © 2026</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      async function getLiveWeather() {
+        // 1. Setup the API request from your screenshot
+        const url =
+          "https://meteostat.p.rapidapi.com/stations/daily?station=10637&start=2026-02-16&end=2026-02-16";
+        const options = {
+          method: "GET",
+          headers: {
+            "x-rapidapi-key":
+              "d0ed22ae34msh2ed921b830924d5p132290jsnb25137a7504c", // Replace with your key
+            "x-rapidapi-host": "meteostat.p.rapidapi.com",
+          },
+        };
+
+        try {
+          const response = await fetch(url, options);
+          const result = await response.json();
+
+          // 2. Extract the temperature (tavg is usually average temp)
+          const temp = result.data[0].tavg;
+
+          // 2. Round it to the nearest whole number (e.g., 31.4 becomes 31)
+          const roundedTemp = Math.round(temp * 10);
+
+          // 3. Update your project's specific HTML class
+          const tempElement = document.querySelector(".temperature");
+          if (tempElement) {
+            tempElement.innerHTML = `${roundedTemp}° <i class="fas fa-sun text-warning me-1"></i>`;
+          }
+        } catch (error) {
+          console.error("Weather API Error:", error);
+        }
+      }
+
+      // Run the function when the page loads
+      getLiveWeather();
+
+      function updateRealTimeDate() {
+        const now = new Date();
+
+        // Options for high-ticket premium formatting
+        const options = {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: true,
+        };
+
+        // Format for Arabic (Saudi Arabia)
+        const formattedDate = new Intl.DateTimeFormat("ar-SA", options).format(
+          now,
+        );
+
+        const dateElement = document.getElementById("live-date-time");
+        if (dateElement) {
+          // Keeps the icon and updates the text
+          dateElement.innerHTML = `<i class="far fa-calendar-alt ms-1"></i> ${formattedDate}`;
+        }
+      }
+
+      // Update every second (1000 milliseconds)
+      setInterval(updateRealTimeDate, 1000);
+
+      // Run immediately on load
+      updateRealTimeDate();
+
+      const video = document.getElementById("brokerVideo");
+      const unmuteBtn = document.getElementById("unmuteBtn");
+      const muteIcon = document.getElementById("muteIcon");
+      const muteText = document.getElementById("muteText");
+
+      unmuteBtn.addEventListener("click", () => {
+        if (video.muted) {
+          video.muted = false;
+          muteIcon.classList.replace("fa-volume-mute", "fa-volume-up");
+          muteText.innerText = "كتم الصوت";
+        } else {
+          video.muted = true;
+          muteIcon.classList.replace("fa-volume-up", "fa-volume-mute");
+          muteText.innerText = "تشغيل الصوت";
+        }
+      });
+    </script>
+
+    <!-- Bootstrap JS (for toggler etc) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
