@@ -28,6 +28,7 @@
         overflow-x: hidden !important;
         width: 100%;
         max-width: 100%;
+        direction: rtl;
       }
       body {
         font-family: "Cairo", sans-serif;
@@ -265,8 +266,16 @@
         font-size: 0.8rem;
         z-index: 10;
       }
-      /* responsive fine-tune */
-      @media (max-width: 768px) {
+
+      /* Mobile order fixes - video above form on mobile */
+      @media (max-width: 991px) {
+        .mobile-order-video {
+          order: 1 !important;
+        }
+        .mobile-order-form {
+          order: 2 !important;
+          margin-top: 2rem;
+        }
         .display-5 {
           font-size: 2.2rem;
         }
@@ -285,6 +294,17 @@
           padding: 5px 15px;
           font-size: 0.8rem;
           z-index: 10;
+        }
+      }
+
+      /* Additional fine-tuning for very small devices */
+      @media (max-width: 576px) {
+        .hero-video-wrapper {
+          border-radius: 20px;
+        }
+        .mainLay {
+          display: flex;
+          flex-direction: column-reverse;
         }
       }
     </style>
@@ -370,7 +390,7 @@
 
     <!-- MAIN LAYOUT: two columns (right: articles, left: main content) -->
     <div class="container position-relative mt-4">
-      <div class="row g-5">
+      <div class="row g-5 mainLay">
         <!-- Right sidebar: "اقرأ المزيد من المقالات" + three article cards (Bootstrap style) -->
         <div class="col-lg-4 order-lg-1">
           <div class="sticky-top" style="top: 100px">
@@ -456,7 +476,7 @@
         <!-- Left main content (premium story & forms) -->
         <div class="col-lg-8">
           <!-- Main hero article -->
-          <div class="glass-card p-4 p-xl-5 mb-5">
+          <div class="glass-card p-2 p-xl-5 mb-5">
             <span class="badge-premium mb-3 d-inline-block"
               >#1 منصة تداول 2025</span
             >
@@ -494,7 +514,99 @@
               </div>
             </div>
 
-            <div class="row">
+            <!-- LEAD CAPTURE FORM - high ticket design (CPA aggressive) -->
+            <div
+              class="card-premium p-xl-5 mt-5 mobile-order-form"
+              style="background: #ffffff"
+              id="bform"
+            >
+              <div class="cpa-urgency mb-4">
+                <i class="fas fa-fire fa-2x text-maroon float-start ms-3"></i>
+                <h3 class="fw-black mb-1">
+                  ⚠️ 43 متداولاً يشاهدون هذه الصفحة الآن
+                </h3>
+                <p class="mb-0">
+                  باقي 6 اشتراكات فقط للحصول على البونص <b>رمضان 100%</b>
+                </p>
+              </div>
+              <h2 class="display-6 fw-black mb-3">
+                ابدأ الآن حلم التداول <br />
+                مع اكبر منصة في الشرق الاوسط
+              </h2>
+              <div class="row">
+                <div class="row">
+                  <form class="row g-4" style="padding-left: 0%">
+                    <div class="col-12">
+                      <input
+                        type="text"
+                        class="form-control lead-form-input"
+                        placeholder="الاسم"
+                      />
+                    </div>
+                    <div class="col-12">
+                      <input
+                        type="text"
+                        class="form-control lead-form-input"
+                        placeholder="اللقب "
+                      />
+                    </div>
+                    <div class="col-12">
+                      <input
+                        type="text"
+                        class="form-control lead-form-input"
+                        placeholder="الايميل"
+                      />
+                    </div>
+                    <div class="col-8">
+                      <input
+                        type="tel"
+                        class="form-control lead-form-input"
+                        placeholder="رقم الموبايل"
+                      />
+                    </div>
+                    <div class="col-4">
+                      <select class="form-select lead-form-input">
+                        <option>+20</option>
+                        <option>+966</option>
+                        <option>+971</option>
+                      </select>
+                    </div>
+                    <div class="col-12">
+                      <button
+                        type="submit"
+                        class="btn btn-gold w-100 py-3 fs-4"
+                      >
+                        سجل الآن واحصل على 100% بونص رمضان
+                      </button>
+                    </div>
+                  </form>
+                  <div
+                    class="d-flex justify-content-center gap-5 mt-4 flex-wrap"
+                  >
+                    <img
+                      src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/TwJOs694fm.png"
+                      height="45"
+                      alt="finacom"
+                    />
+                    <img
+                      src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/SVJHHkmvXd.png"
+                      height="45"
+                      alt="europebank"
+                    />
+                    <img
+                      src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-02-16/KCbaNyGHcT.png"
+                      height="45"
+                      alt="ssl"
+                    />
+                  </div>
+                  <p class="text-center text-maroon fw-bold mt-3">
+                    <i class="fas fa-lock"></i> منصة موثقة قانونياً وآمنة
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row pt-5">
               <div class="col-md-10">
                 <p class="lead fs-5">
                   وُلد الشقيري في جدة، وتخرّج من مدرسة منارات قبل أن ينتقل
@@ -604,33 +716,46 @@
           </div>
 
           <!-- LEAD CAPTURE FORM - high ticket design (CPA aggressive) -->
-          <div class="card-premium p-4 p-xl-5 mt-5" style="background: #ffffff">
+          <div
+            class="card-premium p-1 p-xl-5 mt-5 mobile-order-form"
+            style="background: #ffffff"
+            id="bform"
+          >
             <div class="cpa-urgency mb-4">
               <i class="fas fa-fire fa-2x text-maroon float-start ms-3"></i>
               <h3 class="fw-black mb-1">
                 ⚠️ 43 متداولاً يشاهدون هذه الصفحة الآن
               </h3>
-              <p class="mb-0">باقي 6 اشتراكات فقط للحصول على البونص 100%</p>
+              <p class="mb-0">
+                باقي 6 اشتراكات فقط للحصول على البونص <b>رمضان</b> 100%
+              </p>
             </div>
             <h2 class="display-6 fw-black mb-3">
               ابدأ الآن حلم التداول <br />
               مع اكبر منصة في الشرق الاوسط
             </h2>
-            <div class="row" id="bform">
+            <div class="row">
               <div class="row">
                 <form class="row g-4" style="padding-left: 0%">
                   <div class="col-12">
                     <input
                       type="text"
                       class="form-control lead-form-input"
-                      placeholder="الاسم بالكامل"
+                      placeholder="الاسم"
                     />
                   </div>
                   <div class="col-12">
                     <input
-                      type="email"
+                      type="text"
                       class="form-control lead-form-input"
-                      placeholder="البريد الإلكتروني"
+                      placeholder="اللقب "
+                    />
+                  </div>
+                  <div class="col-12">
+                    <input
+                      type="text"
+                      class="form-control lead-form-input"
+                      placeholder="الايميل"
                     />
                   </div>
                   <div class="col-8">
@@ -649,7 +774,7 @@
                   </div>
                   <div class="col-12">
                     <button type="submit" class="btn btn-gold w-100 py-3 fs-4">
-                      سجل الآن واحصل على 100% بونص
+                      سجل الآن واحصل على 100% بونص رمضان
                     </button>
                   </div>
                 </form>
